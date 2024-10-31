@@ -59,7 +59,7 @@ return (
       <div 
         className="absolute inset-0 bg-cover bg-center filter opacity-70 z-0"
         style={{ 
-          backgroundImage: `url(${window.innerWidth <= 768 ? './hero.jpg' : './hero.jpg'})`,
+          backgroundImage: `url(${window.innerWidth <= 768 ? './mhero.jpg' : './hero.jpg'})`,
           backgroundPosition: 'center center'
         }}
       />
