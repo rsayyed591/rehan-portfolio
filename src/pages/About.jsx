@@ -11,7 +11,7 @@ const About = () => {
                 <img 
                     src="./about.JPG" 
                     alt="About Image" 
-                    className="w-full h-auto max-h-[26rem] mr-5 object-cover" 
+                    className="w-full h-auto max-h-[26rem] mr-15 object-cover" 
                 />
                 <div className="max-w-3xl">
                     <p className="font-thin text-sm md:text-base leading-relaxed">
