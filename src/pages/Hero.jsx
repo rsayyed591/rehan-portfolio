@@ -54,7 +54,7 @@ const SocialIcon = ({ href, icon, label }) => (
 );
 
 return (
-    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-gray-800">
+    <div id='home' className="relative min-h-screen flex flex-col justify-center overflow-hidden text-gray-800">
       {/* Background with blur effect */}
       <div 
         className="absolute inset-0 bg-cover bg-center filter opacity-70 z-0"
