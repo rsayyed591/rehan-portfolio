@@ -8,7 +8,7 @@ const About = () => {
                 <div className="h-1 w-24 bg-blue-600 mx-auto"></div>
             </div>
             
-            <div className="flex flex-col lg:flex-row gap-12 mb-16 max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row gap-12 mb-16 max-w-7xl mx-auto sm:ml-24">
                 <div className="lg:w-1/3">
                     <div className="w-full">
                         <img 
