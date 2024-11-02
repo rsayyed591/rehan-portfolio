@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaLinkedinIn, FaGithub, FaHackerrank } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
+import { AnimateOnScroll } from '../components/AnimateOnScroll';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -65,7 +66,7 @@ return (
       />
 
       {/* Content */}
-      <div className="relative z-10 px-6 md:px-32">
+      <AnimateOnScroll className="relative z-10 px-6 md:px-32">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
           Rehan Sayyed
         </h1>
@@ -82,11 +83,9 @@ return (
           <SocialIcon href="https://leetcode.com/u/rehann/" icon={<SiLeetcode size={20} />} label="LeetCode" />
           <SocialIcon href="https://www.hackerrank.com/profile/rehansayyed591" icon={<FaHackerrank size={20} />} label="HackerRank" />
         </div>
-      </div>
+      </AnimateOnScroll>
     </div>
   );
 };
-
-
 
 export default Hero;

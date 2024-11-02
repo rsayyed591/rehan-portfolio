@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimateOnScroll } from '../components/AnimateOnScroll';
 import {
   SiCsharp,
   SiC,
@@ -72,14 +73,14 @@ const Skills = () => {
 
   return (
     <div id="skills" className="container mx-auto px-4 py-8 sm:py-16">
-      <div className="text-center mb-8 sm:mb-16">
+      <AnimateOnScroll className="text-center mb-8 sm:mb-16">
         <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#2D2E32] mb-4">SKILLS</h1>
         <div className="h-1 w-16 sm:w-24 bg-blue-600 mx-auto"></div>
-      </div>
+      </AnimateOnScroll>
 
       <div className="space-y-8 sm:space-y-12 sm:ml-24">
         {Object.entries(skillsData).map(([category, skills]) => (
-          <div key={category}>
+          <AnimateOnScroll key={category}>
             <h2 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">{category}:</h2>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 sm:gap-6">
               {skills.map((skill, index) => (
@@ -102,12 +103,12 @@ const Skills = () => {
                   </span>
                 </div>
               ))}
-            </div>
-          </div>
-        ))}
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
       </div>
-    </div>
-  );
-};
-
-export default Skills;
+    );
+  };
+  
+  export default Skills;

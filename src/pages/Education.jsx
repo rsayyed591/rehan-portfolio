@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { AnimateOnScroll } from '../components/AnimateOnScroll';
 
 const Education = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,13 +57,14 @@ const Education = () => {
 
   return (
     <div id="education" className="container mx-auto px-4 py-8 sm:py-16">
-      <div className="text-center mb-8 sm:mb-16">
+      <AnimateOnScroll className="text-center mb-8 sm:mb-16">
         <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#2D2E32] mb-4">EDUCATION</h1>
         <div className="h-1 w-16 sm:w-24 bg-blue-600 mx-auto"></div>
-      </div>
+      </AnimateOnScroll>
 
-      <div className="relative max-w-4xl mx-auto">
+      <AnimateOnScroll className="relative max-w-4xl mx-auto">
         <div className="relative h-[400px] sm:h-[500px] overflow-hidden rounded-xl bg-white">
+
           {educationData.map((edu, index) => (
             <div
               key={index}
@@ -115,7 +117,7 @@ const Education = () => {
             ))}
           </div>
         </div>
-      </div>
+      </AnimateOnScroll>
     </div>
   );
 };

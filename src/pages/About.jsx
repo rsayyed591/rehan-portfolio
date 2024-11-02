@@ -1,15 +1,16 @@
 import { BriefcaseBusiness, Braces, FileText, Medal, Download } from 'lucide-react';
+import { AnimateOnScroll } from '../components/AnimateOnScroll';
 
 const About = () => {
     return (
         <div id='about' className="container mx-auto px-4 py-12">
-            <div className="text-center mb-16">
+            <AnimateOnScroll className="text-center mb-16">
                 <h1 className="text-3xl md:text-4xl font-bold text-[#2D2E32] mb-4">ABOUT</h1>
                 <div className="h-1 w-24 bg-blue-600 mx-auto"></div>
-            </div>
+            </AnimateOnScroll>
             
             <div className="flex flex-col lg:flex-row gap-12 mb-16 max-w-7xl mx-auto sm:ml-24">
-                <div className="lg:w-1/3">
+                <AnimateOnScroll className="lg:w-1/3">
                     <div className="w-full">
                         <img 
                             src="./about.JPG" 
@@ -17,8 +18,8 @@ const About = () => {
                             className="w-full h-auto rounded-lg shadow-lg object-cover" 
                         />
                     </div>
-                </div>
-                <div className="lg:w-2/3">
+                </AnimateOnScroll>
+                <AnimateOnScroll className="lg:w-2/3">
                     <div className="prose prose-lg max-w-none">
                         <p className="text-[#2D2E32] text-lg leading-relaxed mb-6">
                             Hi! I'm Rehan Feroz Sayyed, a final-year Computer Engineering student from Mumbai with a passion for creating efficient, engaging web applications. My expertise spans both front-end and back-end development, and I'm skilled in frameworks like React, Node.js, and Django, along with languages such as JavaScript, Java, and Python.
@@ -41,10 +42,10 @@ const About = () => {
                             View Resume
                         </a>
                     </div>
-                </div>
+                </AnimateOnScroll>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <AnimateOnScroll className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
                 {[
                     { Icon: BriefcaseBusiness, count: 3, label: "Internships" },
                     { Icon: Braces, count: 32, label: "Projects" },
@@ -59,7 +60,7 @@ const About = () => {
                         <p className="text-[#2D2E32] text-center font-medium">{item.label}</p>
                     </div>
                 ))}
-            </div>
+            </AnimateOnScroll>
         </div>
     );
 }

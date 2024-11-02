@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimateOnScroll } from '../components/AnimateOnScroll';
 
 const Experience = () => {
     const experiences = [
@@ -36,22 +37,22 @@ const Experience = () => {
     
     
 
-  return (
-    <section id="experience" className="container mx-auto px-4 py-8 sm:py-16">
-      <div className="text-center mb-12 sm:mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#2D2E32] mb-4">
-          WORK EXPERIENCE
-        </h2>
-        <div className="relative">
-          <div className="h-px w-48 bg-gray-200 mx-auto"></div>
-          <div className="h-1 w-12 bg-blue-600 mx-auto -mt-[1px]"></div>
-        </div>
-      </div>
+    return (
+      <section id="experience" className="container mx-auto px-4 py-8 sm:py-16">
+          <AnimateOnScroll className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#2D2E32] mb-4">
+                  WORK EXPERIENCE
+              </h2>
+              <div className="relative">
+                  <div className="h-px w-48 bg-gray-200 mx-auto"></div>
+                  <div className="h-1 w-12 bg-blue-600 mx-auto -mt-[1px]"></div>
+              </div>
+          </AnimateOnScroll>
 
-      <div className="max-w-4xl mx-auto relative">
-        <div className="border-l-2 border-blue-600 ml-6 sm:ml-8 space-y-16">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 sm:pl-10">
+          <div className="max-w-4xl mx-auto relative">
+              <div className="border-l-2 border-blue-600 ml-6 sm:ml-8 space-y-16">
+                  {experiences.map((exp, index) => (
+                      <AnimateOnScroll key={index} className="relative pl-8 sm:pl-10">
               {/* Timeline dot */}
               <div className="absolute left-0 w-4 h-4 bg-white border-2 border-blue-600 rounded-full transform -translate-x-1/2 mt-1.5"></div>
               
@@ -71,13 +72,13 @@ const Experience = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+                </div>
+              </AnimateOnScroll>
+                    ))}
+                </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Experience;
