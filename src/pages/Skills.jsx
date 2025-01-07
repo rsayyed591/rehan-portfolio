@@ -34,7 +34,6 @@ import { FaJava } from 'react-icons/fa';
 const Skills = () => {
   const skillsData = {
     Languages: [
-      { name: 'C#', icon: <SiCsharp className="text-[#68217A]" /> },
       { name: 'C', icon: <SiC className="text-[#00599C]" /> },
       { name: 'C++', icon: <SiCplusplus className="text-[#00599C]" /> },
       { name: 'JAVA', icon: <FaJava className="text-[#007396]" /> },
@@ -48,24 +47,14 @@ const Skills = () => {
     Databases: [
       { name: 'MYSQL', icon: <SiMysql className="text-[#4479A1]" /> },
       { name: 'MONGODB', icon: <SiMongodb className="text-[#47A248]" /> },
-      { name: 'FIREBASE', icon: <SiFirebase className="text-[#FFCA28]" /> },
-      { name: 'ORACLE', icon: <SiOracle className="text-[#F80000]" /> },
-      { name: 'POSTGRESQL', icon: <SiPostgresql className="text-[#336791]" /> }
     ],
     Frameworks: [
       { name: 'BOOTSTRAP', icon: <SiBootstrap className="text-[#7952B3]" /> },
-      { name: 'ANGULAR', icon: <SiAngular className="text-[#DD0031]" /> },
       { name: 'NODE.JS', icon: <SiNodedotjs className="text-[#339933]" /> },
       { name: 'REACT', icon: <SiReact className="text-[#61DAFB]" /> },
-      { name: 'FLASK', icon: <SiFlask className="text-[#000000]" /> },
       { name: 'DJANGO', icon: <SiDjango className="text-[#092E20]" /> },
-      { name: 'ANDROID', icon: <SiAndroid className="text-[#3DDC84]" /> },
-      { name: 'FLUTTER', icon: <SiFlutter className="text-[#02569B]" /> }
     ],
     'Cloud/Tools': [
-      { name: 'DOCKER', icon: <SiDocker className="text-[#2496ED]" /> },
-      { name: 'GCP', icon: <SiGooglecloud className="text-[#4285F4]" /> },
-      { name: 'AZURE', icon: <SiMicrosoftazure className="text-[#0089D6]" /> },
       { name: 'GIT', icon: <SiGit className="text-[#F05032]" /> },
       { name: 'GITHUB', icon: <SiGithub className="text-[#181717]" /> }
     ]
