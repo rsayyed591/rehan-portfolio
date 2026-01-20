@@ -3,15 +3,24 @@ import { useState, useEffect, useRef } from 'react';
 export function useInView(options = {}) {
   const [isInView, setIsInView] = useState(false);
   const ref = useRef(null);
+  
+  // Use a ref to store options so we don't re-trigger effect on every render
+  const optionsRef = useRef(options);
+
+  useEffect(() => {
+    optionsRef.current = options;
+  }, [options]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsInView(true);
-        // Once the element is in view, stop observing it
-        observer.unobserve(entry.target);
+        // Stop observing once visible to prevent re-triggering
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
       }
-    }, options);
+    }, optionsRef.current);
 
     if (ref.current) {
       observer.observe(ref.current);
@@ -22,7 +31,7 @@ export function useInView(options = {}) {
         observer.unobserve(ref.current);
       }
     };
-  }, [options]);
+  }, []); // Empty dependency array ensures this runs once
 
   return [ref, isInView];
 }

@@ -1,103 +1,131 @@
 import React from 'react';
 import { AnimateOnScroll } from '../components/AnimateOnScroll';
+import { Layers, Database, Palette, Wrench } from 'lucide-react'; // Category Icons
 import {
-  SiCsharp,
-  SiC,
-  SiCplusplus,
-  SiPython,
-  SiHtml5,
-  SiCss3,
-  SiPhp,
   SiJavascript,
-  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
   SiMysql,
   SiMongodb,
-  SiFirebase,
-  SiOracle,
-  SiPostgresql,
+  SiTailwindcss,
   SiBootstrap,
-  SiAngular,
-  SiNodedotjs,
-  SiReact,
-  SiFlask,
-  SiDjango,
-  SiAndroid,
-  SiFlutter,
-  SiDocker,
-  SiGooglecloud,
-  SiMicrosoftazure,
+  SiRedux,
+  SiHtml5,
+  SiCss3,
   SiGit,
-  SiGithub
+  SiGithub,
+  SiPython,
+  SiDjango,
 } from 'react-icons/si';
-import { FaJava } from 'react-icons/fa';
 
 const Skills = () => {
-  const skillsData = {
-    Languages: [
-      { name: 'C', icon: <SiC className="text-[#00599C]" /> },
-      { name: 'C++', icon: <SiCplusplus className="text-[#00599C]" /> },
-      { name: 'JAVA', icon: <FaJava className="text-[#007396]" /> },
-      { name: 'PYTHON', icon: <SiPython className="text-[#3776AB]" /> },
-      { name: 'HTML5', icon: <SiHtml5 className="text-[#E34F26]" /> },
-      { name: 'CSS3', icon: <SiCss3 className="text-[#1572B6]" /> },
-      { name: 'PHP', icon: <SiPhp className="text-[#777BB4]" /> },
-      { name: 'JAVASCRIPT', icon: <SiJavascript className="text-[#F7DF1E]" /> },
-      { name: 'TYPESCRIPT', icon: <SiTypescript className="text-[#3178C6]" /> }
-    ],
-    Databases: [
-      { name: 'MYSQL', icon: <SiMysql className="text-[#4479A1]" /> },
-      { name: 'MONGODB', icon: <SiMongodb className="text-[#47A248]" /> },
-    ],
-    Frameworks: [
-      { name: 'BOOTSTRAP', icon: <SiBootstrap className="text-[#7952B3]" /> },
-      { name: 'NODE.JS', icon: <SiNodedotjs className="text-[#339933]" /> },
-      { name: 'REACT', icon: <SiReact className="text-[#61DAFB]" /> },
-      { name: 'DJANGO', icon: <SiDjango className="text-[#092E20]" /> },
-    ],
-    'Cloud/Tools': [
-      { name: 'GIT', icon: <SiGit className="text-[#F05032]" /> },
-      { name: 'GITHUB', icon: <SiGithub className="text-[#181717]" /> }
-    ]
-  };
+  const skillsData = [
+    {
+      category: 'Core Stack',
+      icon: <Layers size={20} className="text-blue-600" />,
+      skills: [
+        { name: 'JavaScript', icon: <SiJavascript className="text-[#F7DF1E]" /> },
+        { name: 'React', icon: <SiReact className="text-[#61DAFB]" /> },
+        { name: 'Next.js', icon: <SiNextdotjs className="text-black" /> },
+        { name: 'Node.js', icon: <SiNodedotjs className="text-[#339933]" /> },
+      ],
+    },
+    {
+      category: 'Backend & Data',
+      icon: <Database size={20} className="text-blue-600" />,
+      skills: [
+        { name: 'Express.js', icon: <SiExpress className="text-black" /> },
+        { name: 'MySQL', icon: <SiMysql className="text-[#4479A1]" /> },
+        { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" /> },
+        { name: 'Python', icon: <SiPython className="text-[#3776AB]" /> },
+      ],
+    },
+    {
+      category: 'Styling & State',
+      icon: <Palette size={20} className="text-blue-600" />,
+      skills: [
+        { name: 'Tailwind', icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+        { name: 'Bootstrap', icon: <SiBootstrap className="text-[#7952B3]" /> },
+        { name: 'Redux', icon: <SiRedux className="text-[#764ABC]" /> },
+        { name: 'CSS3', icon: <SiCss3 className="text-[#1572B6]" /> },
+      ],
+    },
+    {
+      category: 'Tools & DevOps',
+      icon: <Wrench size={20} className="text-blue-600" />,
+      skills: [
+        { name: 'Git', icon: <SiGit className="text-[#F05032]" /> },
+        { name: 'GitHub', icon: <SiGithub className="text-[#181717]" /> },
+        { name: 'Django', icon: <SiDjango className="text-[#092E20]" /> },
+        { name: 'HTML5', icon: <SiHtml5 className="text-[#E34F26]" /> },
+      ],
+    },
+  ];
 
   return (
-    <div id="skills" className="container mx-auto px-4 py-8 sm:py-16">
-      <AnimateOnScroll className="text-center mb-8 sm:mb-16">
-        <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#2D2E32] mb-4">SKILLS</h1>
-        <div className="h-1 w-16 sm:w-24 bg-blue-600 mx-auto"></div>
-      </AnimateOnScroll>
+    <section id="skills" className="py-28 bg-gray-50 relative overflow-hidden">
+      {/* Background Decorations (Matching Contact.jsx) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+      <div className="absolute left-0 bottom-0 -z-10 h-[300px] w-[300px] rounded-full bg-blue-400 opacity-20 blur-[100px]" />
 
-      <div className="space-y-8 sm:space-y-12 sm:ml-24">
-        {Object.entries(skillsData).map(([category, skills]) => (
-          <AnimateOnScroll key={category}>
-            <h2 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">{category}:</h2>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 sm:gap-6">
-              {skills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center justify-center group"
-                >
-                  <div className="relative w-12 h-12 sm:w-16 sm:h-16">
-                    {/* Semi-circle background */}
-                    <div className="absolute inset-0 bg-gray-100 rounded-full transition-all duration-300 group-hover:bg-gray-200 shadow-md group-hover:shadow-lg"></div>
-                    {/* Icon container */}
-                    <div className="absolute inset-0 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1">
-                      {React.cloneElement(skill.icon, { 
-                        className: `w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110 ${skill.icon.props.className}` 
-                      })}
-                    </div>
+      <div className="container mx-auto px-6 relative z-10 max-w-7xl">
+        
+        {/* Header */}
+        <AnimateOnScroll className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-6">
+            Technical Skills
+          </h2>
+          <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full mb-6" />
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+            A comprehensive toolkit focused on scalable web architecture and modern user interfaces.
+          </p>
+        </AnimateOnScroll>
+
+        <div className="md:ml-20">
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {skillsData.map((section, idx) => (
+            <AnimateOnScroll key={idx} className="h-full">
+              <div className="bg-white rounded-3xl p-8 shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-blue-100 transition-colors h-full flex flex-col">
+                
+                {/* Category Title */}
+                <div className="flex items-center gap-3 mb-8 border-b border-gray-100 pb-4">
+                  <div className="p-2 bg-blue-50 rounded-lg">
+                    {section.icon}
                   </div>
-                  <span className="mt-2 text-[10px] sm:text-xs font-medium text-gray-700 text-center group-hover:text-gray-900 transition-all duration-300 group-hover:-translate-y-0.5">
-                    {skill.name}
-                  </span>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {section.category}
+                  </h3>
                 </div>
-              ))}
+
+                {/* Skills Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {section.skills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="group flex flex-col items-center justify-center p-4 rounded-xl hover:bg-blue-50/50 transition-all duration-300 border border-transparent hover:border-blue-100"
+                    >
+                      {/* Icon with Grayscale-to-Color Effect */}
+                      <div className="text-3xl mb-3 text-gray-400 group-hover:text-current filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110">
+                        {skill.icon}
+                      </div>
+                      
+                      <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </AnimateOnScroll>
           ))}
         </div>
       </div>
-    );
-  };
-  
-  export default Skills;
+      </div>
+    </section>
+  );
+};
+
+export default Skills;

@@ -2,11 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* -------------------------------------------------------------------------- */
+/* 1. Global Behavior & Typography                                            */
+/* -------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  
+  /* THE FIX: Prevents layout shift when scrollbar appears/disappears */
+  scrollbar-gutter: stable;
 }
 
-.animate-blink {
-  animation: blink 1s step-end infinite;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Updated to match your Dark Theme (gray-950) 
+     so the scrollbar gutter blends in during loading */
+  background-color: #030712; 
+  color: #f9fafb; /* Light text default */
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. Brand Identity: Selection & Focus                                       */
+/* -------------------------------------------------------------------------- */
+
+::selection {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Modern Scrollbar (Dark Theme Optimized)                                 */
+/* -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px; /* Slightly wider for better usability */
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712; /* Matches body bg (Invisible track) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #334155; /* Slate-700 (Subtle dark gray) */
+  border-radius: 9999px;
+  border: 3px solid #030712; /* Creates padding effect around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #475569; /* Slate-600 */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. Special Effects                                                         */
+/* -------------------------------------------------------------------------- */
+
+@layer utilities {
+  .text-shimmer {
+    background: linear-gradient(
+      to right, 
+      #ffffff 20%, 
+      #3b82f6 50%, 
+      #ffffff 80%
+    );
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. Custom Cursor Hide Logic                                                */
+/* -------------------------------------------------------------------------- */
+
+@media (pointer: fine) {
+  body, a, button, input, select, textarea {
+    cursor: none !important;
+  }
 }
