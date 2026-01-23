@@ -94,8 +94,8 @@ body {
 /* 5. Custom Cursor Hide Logic                                                */
 /* -------------------------------------------------------------------------- */
 
-@media (pointer: fine) {
+/* @media (pointer: fine) {
   body, a, button, input, select, textarea {
     cursor: none !important;
   }
-}
+} */

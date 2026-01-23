@@ -6,6 +6,22 @@ import { FolderGit2 } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
+      title: "Ishaara V1.0",
+      image: "/projects/ishaarav1.png",
+      description: "A web-based Indian Sign Language (ISL) translator that allows users to learn, translate, and explore ISL signs and sentences.",
+      technologies: ["React", "CSS", "Node.js", "RoboFlow"],
+      githubUrl: "https://github.com/vnrr2023/Ishaara-Website-2.0",
+      liveUrl: "https://ishaara.netlify.app/",
+    },
+    {
+      title: "Ishaara V2.0",
+      image: "/projects/ishaarav2.png",
+      description: "An updated version of Ishaara, a web-based Indian Sign Language (ISL) translator offering various resources and tools to engage with ISL.",
+      technologies: ["Next.js", "React", "Tailwind CSS", "Node.js"],
+      githubUrl: "https://github.com/rsayyed591/Noname.json_LOC7",
+      liveUrl: "https://ishaara.vercel.app/",
+    },
+    {
       title: "Hack-Manager",
       image: "/projects/hack-management.png",
       description: "A platform for managing hackathons, built with React, Node.js, and styled using Tailwind CSS. It facilitates participant registration, team formation, judging, and event management.",
@@ -36,22 +52,6 @@ const Projects = () => {
       technologies: ["Next.js", "Node.js", "Tailwind CSS", "Shadcn"],
       githubUrl: "https://github.com/rsayyed591/Noname.json_LOC7",
       liveUrl: "https://annsampark.vercel.app/",
-    },
-    {
-      title: "Ishaara V1.0",
-      image: "/projects/ishaarav1.png",
-      description: "A web-based Indian Sign Language (ISL) translator that allows users to learn, translate, and explore ISL signs and sentences.",
-      technologies: ["React", "CSS", "Node.js", "RoboFlow"],
-      githubUrl: "https://github.com/vnrr2023/Ishaara-Website-2.0",
-      liveUrl: "https://ishaara.netlify.app/",
-    },
-    {
-      title: "Ishaara V2.0",
-      image: "/projects/ishaarav2.png",
-      description: "An updated version of Ishaara, a web-based Indian Sign Language (ISL) translator offering various resources and tools to engage with ISL.",
-      technologies: ["Next.js", "React", "Tailwind CSS", "Node.js"],
-      githubUrl: "https://github.com/rsayyed591/Noname.json_LOC7",
-      liveUrl: "https://ishaara.vercel.app/",
     },
     {
       title: "CSGPT AI",
