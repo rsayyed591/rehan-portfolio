@@ -3,84 +3,145 @@
 @tailwind utilities;
 
 /* -------------------------------------------------------------------------- */
-/* 1. Global Behavior & Typography                                            */
+/* 1. Fonts & Global Behavior                                                 */
 /* -------------------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    /* Fonts */
+    --font-sans: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Geist Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+    
+    /* Light Theme - Soft Cloud */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --accent-dark: #1d4ed8;
+    --border: #e2e8f0;
+    --shadow: rgba(0, 0, 0, 0.08);
+    
+    /* Animation Timing */
+    --transition-fast: 150ms;
+    --transition-base: 300ms;
+    --transition-slow: 500ms;
+    
+    /* Cursor */
+    --cursor-size: 20px;
+  }
+
+  [data-theme="dark"] {
+    /* Dark Theme - Midnight Navy */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #3b82f6;
+    --accent-light: #1e40af;
+    --accent-dark: #60a5fa;
+    --border: #334155;
+    --shadow: rgba(0, 0, 0, 0.3);
+  }
+}
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
-  
-  /* THE FIX: Prevents layout shift when scrollbar appears/disappears */
   scrollbar-gutter: stable;
 }
 
 body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  /* Updated to match your Dark Theme (gray-950) 
-     so the scrollbar gutter blends in during loading */
-  background-color: #030712; 
-  color: #f9fafb; /* Light text default */
   overflow-x: hidden;
+  transition: background-color var(--transition-base) ease, 
+              color var(--transition-base) ease;
+}
+
+/* Monospace utility */
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 /* -------------------------------------------------------------------------- */
-/* 2. Brand Identity: Selection & Focus                                       */
+/* 2. Selection & Focus                                                       */
 /* -------------------------------------------------------------------------- */
 
 ::selection {
-  background-color: #2563eb;
+  background-color: var(--accent);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 /* -------------------------------------------------------------------------- */
-/* 3. Modern Scrollbar (Dark Theme Optimized)                                 */
+/* 3. Scrollbar (Theme Aware)                                                 */
 /* -------------------------------------------------------------------------- */
 
 ::-webkit-scrollbar {
-  width: 10px; /* Slightly wider for better usability */
+  width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030712; /* Matches body bg (Invisible track) */
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #334155; /* Slate-700 (Subtle dark gray) */
+  background-color: var(--text-muted);
   border-radius: 9999px;
-  border: 3px solid #030712; /* Creates padding effect around thumb */
+  border: 3px solid var(--bg-primary);
+  opacity: 0.5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #475569; /* Slate-600 */
+  background-color: var(--accent);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--bg-primary);
 }
 
 /* -------------------------------------------------------------------------- */
-/* 4. Special Effects                                                         */
+/* 4. Text Effects                                                            */
 /* -------------------------------------------------------------------------- */
 
 @layer utilities {
   .text-shimmer {
     background: linear-gradient(
       to right, 
-      #ffffff 20%, 
-      #3b82f6 50%, 
-      #ffffff 80%
+      var(--text-primary) 20%, 
+      var(--accent) 50%, 
+      var(--text-primary) 80%
     );
     background-size: 200% auto;
-    color: #000;
+    color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
+    animation: shine 4s linear infinite;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
@@ -91,11 +152,154 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/* 5. Custom Cursor Hide Logic                                                */
+/* 5. Utility Classes for Themes                                              */
 /* -------------------------------------------------------------------------- */
 
+@layer utilities {
+  .bg-theme-primary { background-color: var(--bg-primary); }
+  .bg-theme-secondary { background-color: var(--bg-secondary); }
+  .bg-theme-tertiary { background-color: var(--bg-tertiary); }
+  
+  .text-theme-primary { color: var(--text-primary); }
+  .text-theme-secondary { color: var(--text-secondary); }
+  .text-theme-muted { color: var(--text-muted); }
+  
+  .text-accent { color: var(--accent); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-accent-light { background-color: var(--accent-light); }
+  
+  .border-theme { border-color: var(--border); }
+  
+  .shadow-theme { 
+    box-shadow: 0 4px 6px -1px var(--shadow), 
+                0 2px 4px -2px var(--shadow); 
+  }
+  
+  .shadow-theme-lg { 
+    box-shadow: 0 10px 15px -3px var(--shadow), 
+                0 4px 6px -4px var(--shadow); 
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ENHANCEMENT 1: Custom Cursor                                               */
+/* -------------------------------------------------------------------------- */
+
+  /* Custom cursor disabled - using default cursor */
 /* @media (pointer: fine) {
-  body, a, button, input, select, textarea {
-    cursor: none !important;
+  .custom-cursor,
+  .cursor-dot {
+    display: none !important;
   }
 } */
+
+/* Show default cursor on touch devices */
+/* @media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  .custom-cursor,
+  .cursor-dot {
+    display: none !important;
+  }
+} */
+/* -------------------------------------------------------------------------- */
+/* ENHANCEMENT 2: Reduced Motion (Accessibility)                              */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .text-shimmer {
+    animation: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ENHANCEMENT 4: Loading Skeleton Shimmer                                    */
+/* -------------------------------------------------------------------------- */
+
+@layer utilities {
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--bg-tertiary) 25%,
+      var(--bg-secondary) 50%,
+      var(--bg-tertiary) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 4px;
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  .skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .skeleton-text:last-child {
+    width: 80%;
+  }
+  
+  .skeleton-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+  
+  .skeleton-card {
+    height: 200px;
+    border-radius: 12px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ENHANCEMENT 7: Noise Texture Overlay                                       */
+/* -------------------------------------------------------------------------- */
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Alternative: CSS-only noise (lighter) */
+.noise-css {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.02;
+  background: repeating-radial-gradient(
+    circle at 0 0,
+    transparent 0,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 2px
+  );
+  background-size: 4px 4px;
+}
