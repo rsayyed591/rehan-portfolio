@@ -1,43 +1,203 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
 
+    <!-- Satoshi (Local) -->
+    <link
+      rel="preload"
+      href="/fonts/Satoshi-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/fonts/satoshi.css" />
+
+    <!-- Geist Mono (Google Fonts) - FIXED URL -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link 
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
+    <link
+      rel="preload"
+      href="/hero.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <!-- DNS Prefetch & Preconnect - REMOVED SPACES -->
+    <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="dns-prefetch" href="https://linkedin.com" />
+    <link rel="dns-prefetch" href="https://vercel.app" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+    <!-- Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/logo/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/logo/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/logo/favicon-16x16.png"
+    />
+    <link rel="icon" type="image/x-icon" href="/logo.ico" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Rehan Sayyed" />
+
+    <!-- Primary Meta Tags -->
     <title>Rehan Sayyed | Full Stack Engineer</title>
-    <meta name="description" content="Full Stack Developer specializing in React, Node.js, and scalable web architecture. Based in Mumbai, creating production-ready applications." />
+    <meta
+      name="description"
+      content="Full Stack Developer specializing in React, Node.js, and scalable web architecture. Based in Mumbai, creating production-ready applications."
+    />
     <meta name="author" content="Rehan Sayyed" />
-    <meta name="keywords" content="Rehan Sayyed, Full Stack Developer, React Developer, Software Engineer, Portfolio, Mumbai" />
-    
+    <meta
+      name="keywords"
+      content="Rehan Sayyed, Full Stack Developer, React Developer, Software Engineer, Portfolio, Mumbai"
+    />
     <meta name="robots" content="index, follow" />
-    
-    <link rel="canonical" href="https://rehan-portfolio-red.vercel.app/" />
+    <link rel="canonical" href="https://www.iamrehan.dev/" />
 
+    <!-- Open Graph - REMOVED SPACES -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rehan-portfolio-red.vercel.app/" />
+    <meta property="og:url" content="https://www.iamrehan.dev/" />
     <meta property="og:title" content="Rehan Sayyed | Full Stack Engineer" />
-    <meta property="og:description" content="Building scalable, production-ready web systems with clean architecture." />
-    
-    <meta property="og:image" content="https://rehan-portfolio-red.vercel.app/og-image.png" />
+    <meta
+      property="og:description"
+      content="Building scalable, production-ready web systems with clean architecture."
+    />
+    <meta property="og:image" content="https://www.iamrehan.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Rehan Sayyed - Full Stack Engineer Portfolio"
+    />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Rehan Sayyed | Full Stack Engineer" />
-    <meta name="twitter:description" content="Building scalable, production-ready web systems with clean architecture." />
-    <meta name="twitter:image" content="https://rehan-portfolio-red.vercel.app/og-image.png" />
+    <meta
+      name="twitter:description"
+      content="Building scalable, production-ready web systems with clean architecture."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.iamrehan.dev/og-image.png"
+    />
 
-    <meta name="theme-color" content="#111827" /> <link rel="icon" type="image/x-icon" href="/logo.ico" />
+    <!-- Theme Color -->
+    <meta
+      name="theme-color"
+      content="#f8fafc"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0f172a"
+      media="(prefers-color-scheme: dark)"
+    />
 
+    <!-- JSON-LD Structured Data - REMOVED SPACES -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rehan Sayyed",
+        "jobTitle": "Full Stack Engineer",
+        "description": "Full Stack Developer specializing in React, Node.js, and scalable web architecture",
+        "url": "https://www.iamrehan.dev/",
+        "image": "https://www.iamrehan.dev/about.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mumbai",
+          "addressCountry": "India"
+        },
+        "sameAs": [
+          "https://github.com/rsayyed591",
+          "https://www.linkedin.com/in/rehan42/"
+        ],
+        "knowsAbout": [
+          "React",
+          "Node.js",
+          "Next.js",
+          "TypeScript",
+          "Full Stack Development"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "M.H. Saboo Siddik College of Engineering"
+        }
+      }
+    </script>
+
+    <!-- Analytics (commented) -->
+    <!-- <script defer data-domain="rehan-portfolio-red.vercel.app" src="https://plausible.io/js/script.js"></script> -->
+
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("portfolio-theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      })();
+    </script>
+
+    <!-- Theme Toggle Images Preload -->
+    <link
+      rel="preload"
+      as="image"
+      href="/toggle/open-book.webp"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/toggle/closed-journal.webp"
+      type="image/webp"
+    />
   </head>
-  <body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-600 selection:text-white">
+  <body class="antialiased selection:bg-blue-600 selection:text-white">
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor - REMOVE THESE IF NOT USING CUSTOM CURSOR -->
+    <!-- <div class="custom-cursor" aria-hidden="true"></div> -->
+    <!-- <div class="cursor-dot" aria-hidden="true"></div> -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Service Worker - REMOVE IF NO sw.js FILE -->
+    <!--
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('SW registered'))
+            .catch((err) => console.log('SW failed', err));
+        });
+      }
+    </script>
+    -->
   </body>
 </html>
