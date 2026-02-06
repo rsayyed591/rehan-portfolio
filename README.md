@@ -115,7 +115,7 @@ src/
 To personalize this portfolio for yourself:
 
 1. **Update Content:** Modify the arrays in `Projects.jsx`, `Experience.jsx`, and `Education.jsx` with your own data.
-2. **Change Images:** Replace `hero.jpg`, `about.JPG`, and project thumbnails in the `/public` folder.
+2. **Change Images:** Replace `hero.jpg`, `about.webp`, and project thumbnails in the `/public` folder.
 3. **SEO:** Update the `<meta>` tags in `index.html` with your name and description.
 4. **Colors:** Modify `tailwind.config.js` or `index.css` to change the primary accent color (currently Blue-600).
 
