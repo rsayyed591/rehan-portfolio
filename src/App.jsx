@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import CustomCursor from './components/CustomCursor';
 
 import About from './pages/About';
 import Education from './pages/Education';
-import Experience from './pages/Experirence';
+import Experience from './pages/Experience';
 import Hero from './pages/Hero';
 import Navbar from './pages/Navbar';
 import Projects from './pages/Projects';
@@ -12,61 +14,79 @@ import Contact from './pages/Contact';
 import Footer from './pages/Footer';
 import Preloader from './components/Preloader';
 
-const App = () => {
-  // 1. Loading state controls the visibility of the Preloader
+// Console Easter Egg
+const ConsoleEasterEgg = () => {
+  useEffect(() => {
+    console.log(
+      '%c👋 Hey there, curious developer!',
+      'color: #3b82f6; font-size: 16px; font-weight: bold;'
+    );
+    console.log(
+      '%cLooking for the source code? Check out: github.com/rsayyed591',
+      'color: #64748b; font-size: 12px;'
+    );
+    console.log(
+      '%c🎨 Theme: Soft Cloud / Midnight Navy\n🔤 Fonts: Satoshi + Geist Mono',
+      'color: #10b981; font-size: 12px;'
+    );
+  }, []);
+  return null;
+};
+
+function App() {
   const [isLoading, setIsLoading] = useState(true);
-  
-  // 2. Asset state tracks if the browser has actually finished downloading (images/fonts)
   const [isAssetsLoaded, setIsAssetsLoaded] = useState(false);
 
-  // Lock scroll during loading
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
   }, [isLoading]);
 
-  // Check for asset loading
   useEffect(() => {
     const handleLoad = () => setIsAssetsLoaded(true);
-
-    // If the page is already loaded (cached or fast connection), set true immediately
+    
     if (document.readyState === 'complete') {
       setIsAssetsLoaded(true);
     } else {
-      // Otherwise, wait for the native 'load' event
       window.addEventListener('load', handleLoad);
     }
-
+    
     return () => window.removeEventListener('load', handleLoad);
   }, []);
 
+  // Simple native scroll to section
+  const scrollToSection = useCallback((sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   return (
-    <>
-      <AnimatePresence mode='wait'>
-        {isLoading && (
-          <Preloader 
-            // We pass the asset status down to the Preloader
-            assetsLoaded={isAssetsLoaded}
-            // Preloader calls this ONLY when Animation AND Assets are ready
-            onComplete={() => setIsLoading(false)} 
-          />
-        )}
-      </AnimatePresence>
+    <ThemeProvider>
+      <ConsoleEasterEgg />
+      
+      {/* Custom Cursor - Desktop Only */}
+      {/* <CustomCursor /> */}
+
+      {/* Preloader */}
+      {isLoading && (
+        <Preloader 
+          assetsLoaded={isAssetsLoaded}
+          onComplete={() => setIsLoading(false)} 
+        />
+      )}
 
       {!isLoading && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative min-h-screen"
-        >
-          {/* Cursor is typically global, better placed here */}
-          <Navbar />
+        <div className="relative min-h-screen bg-theme-primary text-theme-primary transition-colors duration-300">
+          {/* Navbar */}
+          <Navbar onNavigate={scrollToSection} />
           
-          <main className="transition-all duration-300">
+          {/* Main Content */}
+          <main>
             <Hero />
             <About />
             <Skills />
@@ -76,10 +96,13 @@ const App = () => {
             <Contact />
             <Footer />
           </main>
-        </motion.div>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
+        </div>
       )}
-    </>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
